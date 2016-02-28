@@ -27,13 +27,8 @@ int main(int argc, char const *argv[])
 			ignore_case = true;
 		} 		
 	}
-
+	
 	load(input, output, search);
 
-
-	//printf("%s", words[0]);
-	//search_for_word(argv[1])
-	//output_results(output)
-	//exit....
 	return 0;
 }

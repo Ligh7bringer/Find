@@ -1,1 +1,8 @@
-fox
+Found a on line 1: the quick brown. fox jumps! over the lazy dog,
+
+
+Found a on line 2: elvis has left the building.
+
+
+-lazy
+-has

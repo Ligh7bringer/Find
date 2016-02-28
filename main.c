@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
 	char input[50] = "stdin\0";
 	char output[50] = "stdout\0";
 	char search[50];
-	bool ignore_case = false;	
+	int ignore_case = 0;	
 
 	strcpy(search, argv[1]);
 	
@@ -27,8 +27,8 @@ int main(int argc, char const *argv[])
 			ignore_case = true;
 		} 		
 	}
-	
-	load(input, output, search);
+
+	load(input, output, search, ignore_case);
 
 	return 0;
 }

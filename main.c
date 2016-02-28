@@ -9,14 +9,14 @@ int main(int argc, char const *argv[])
 	char input[50] = "stdin\0";
 	char output[50] = "stdout\0";
 	char search[50];
-	int ignore_case = 0;	
+	int ignore_case = 0;		
+	
+	if(argc < 2) {
+		printf("Usage: ./find needle\n -i haystack.txt\n -o output.txt\n -c ignore case\n");
+		return 1;
+	} 
 
 	strcpy(search, argv[1]);
-	
-	/* if(argc < 2) {
-		printf("Wrong number of arguments\n");
-		return 1;
-	} */
 
 	for(int i = 1; i < argc; ++i) {
 		if(strcmp(argv[i], "-i") == 0) {

@@ -17,7 +17,7 @@ void load(char input[50], char output[50], char search[50], int ignore_case) {
 	FILE *inp = fopen(input, "r");
 	if(strcmp(input, "stdin") == 0) {
 		inp = stdin;
-		printf("Enter text:\n");
+		printf("Enter text: (press enter and ctrl + d when done)\n");
 	}
 	if(inp == NULL)
 		printf("File to be read not found.\n");
@@ -30,15 +30,14 @@ void load(char input[50], char output[50], char search[50], int ignore_case) {
 	   	printf("Something went wrong with output file.\n"); 	
 	}
 	
-	while(fgets(curr_line, LINE_LENGTH, inp) != NULL) {   
+	while(fgets(curr_line, LINE_LENGTH, inp) != NULL && !feof(inp)) {   
 		if(ignore_case == 1 ) {
 			for(int i = 0; i < strlen(curr_line); ++i) {				
 				curr_line[i] = tolower(curr_line[i]);				
 			}			
 			for(int i = 0; i < strlen(search); ++i) {
 				search[i] = tolower(search[i]); 
-			}
-			//printf("%s\n", lowerline);
+			}			
 		}
 
 		if(strstr(curr_line, search) != NULL && strcmp(output, "stdout") == 0) {			
@@ -57,9 +56,7 @@ void load(char input[50], char output[50], char search[50], int ignore_case) {
 	   		}
    		}  
    		line++;
-   		break;
 	}  
-
 	
 	for (int j = 0; j < word; ++j) {		
 		char *result = strstr(words[j], search);

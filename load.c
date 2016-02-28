@@ -22,7 +22,7 @@ void load(char input[50], char output[50], char search[50]) {
 
 	while(fgets(curr_line, LINE_LENGTH, inp) != NULL) {   
 		if(strstr(curr_line, search) != NULL) {
-			printf("Found %s on line %i: %s\n", search, line, curr_line);
+			printf("Found %s on line %i: %s\n", search, line+1, curr_line);
 		}
 		for(int l = 0; l < strlen(curr_line); l++) {
 			if(curr_line[l] == '\n' ||curr_line[l] == ' ' || curr_line[l] == '.' || curr_line[l] == ',' || curr_line[l] == '?' || curr_line[l] == '!' || curr_line[l] == '.')  {
@@ -40,21 +40,22 @@ void load(char input[50], char output[50], char search[50]) {
 	}  
 	fclose(inp);
 
+	printf("Words found:\n");
 	for (int j = 0; j < word; ++j) {
 		//printf("%s\n",words[j]);		
 		char *result = strstr(words[j], search);
 		if (result == NULL)			
 			continue;
 		if(strcmp(output, "stdout") != 0)
-			fprintf(outp, "%s\n", words[j]);
-		else printf("%s\n", words[j]);
+			fprintf(outp, "-	%s\n", words[j]);
+		else printf("-	%s\n", words[j]);
 			count++; 
 	}
 
 	if(count == 0 && strcmp(output, "stdout") != 0) 
-		fprintf(outp, "%s\n", "Word not found.\n");
+		fprintf(outp, "-	%s\n", "Word not found.\n");
 	else if(count == 0 && strcmp(output, "stdout") == 0) 
-		printf("%s\n", "Word not found."); 
+		printf("-	%s\n", "Word not found."); 
 
 	fclose(outp);
 }

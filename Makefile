@@ -1,19 +1,19 @@
 # compiler to use
 CC = clang
 
-# flags to pass compiler
+# flags
 CFLAGS = -std=c99
 
-# name for executable
+# executable
 EXE = find
 
-# space-separated list of header files
+# header files
 HDRS = load.h 
 
-# space-separated list of source files
+# source files
 SRCS = main.c load.c 
 
-# automatically generated list of object files
+# object files
 OBJS = $(SRCS:.c=.o)
 
 # default target

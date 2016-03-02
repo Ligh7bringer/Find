@@ -8,10 +8,10 @@ CFLAGS = -std=c99
 EXE = find
 
 # header files
-HDRS = load.h 
+HDRS = find.h 
 
 # source files
-SRCS = main.c load.c 
+SRCS = main.c find.c 
 
 # object files
 OBJS = $(SRCS:.c=.o)
